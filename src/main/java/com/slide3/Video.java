@@ -8,31 +8,29 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
 
 @Entity
-@Table(name = "users")
-@Setter
-@Getter
-public class User {
+@Table(name = "videos")
+@Data
+public class Video {
     @Id
-    @Column(length = 20)
+    @Column(length = 11)
     private String id;
 
     @Column(length = 50)
-    private String password;
+    private String title;
 
     @Column(length = 50)
-    private String fullname;
+    private String poster;
 
-    @Column(length = 50)
-    private String email;
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
-    private Boolean admin;
+    private Boolean active;
 
-    @OneToMany(mappedBy = "user")
+    private Integer views;
+
+    @OneToMany(mappedBy = "video")
     private List<Favorite> favorites;
-    
 }
