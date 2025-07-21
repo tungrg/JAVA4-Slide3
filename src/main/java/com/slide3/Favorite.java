@@ -1,0 +1,31 @@
+package com.slide3;
+
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "favorites")
+@Setter
+@Getter
+public class Favorite {
+    @Id
+    private Integer Id;
+    private Date likeDate;
+
+    @ManyToOne
+    @JoinColumn(name = "UserId")
+    private String userId;
+
+    @ManyToOne
+    @JoinColumn(name = "VideoId")
+    private String videoId;
+}
