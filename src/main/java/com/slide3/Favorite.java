@@ -3,6 +3,7 @@ package com.slide3;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -22,10 +23,10 @@ public class Favorite {
     private Date likeDate;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
-    private String userId;
+    @JoinColumn(name = "userId")
+    private User user;
 
     @ManyToOne
-    @JoinColumn(name = "VideoId")
-    private String videoId;
+    @JoinColumn(name = "videoId")
+    private Video video;
 }

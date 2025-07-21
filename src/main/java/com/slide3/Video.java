@@ -2,6 +2,7 @@ package com.slide3;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -23,7 +24,7 @@ public class Video {
     private Boolean active;
     private Integer view;
 
-    @OneToMany(mappedBy = "videoId")
+    @OneToMany(mappedBy = "video")
     private List<Favorite> favorites;
     
 
