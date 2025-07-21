@@ -31,8 +31,8 @@ public class Main {
         var pf = Persistence.createEntityManagerFactory("polyoe");
         var em = pf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(user);
         em.persist(video);
+        em.persist(user);
         em.getTransaction().commit();
         em.close();
         pf.close();
