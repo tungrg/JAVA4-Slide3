@@ -1,7 +1,6 @@
 package com.slide3;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Persistence;
 
@@ -22,17 +21,19 @@ public class Main {
         video.setActive(true);
         video.setView(100);
         Favorite favorite = new Favorite();
-        favorite.setId(1);
         favorite.setLikeDate(new Date());
         favorite.setUser(user);
         favorite.setVideo(video);
-        user.setFavorites(List.of(favorite));
         
         var pf = Persistence.createEntityManagerFactory("polyoe");
         var em = pf.createEntityManager();
         em.getTransaction().begin();
+        
         em.persist(video);
         em.persist(user);
+        
+        em.persist(favorite);
+        
         em.getTransaction().commit();
         em.close();
         pf.close();
